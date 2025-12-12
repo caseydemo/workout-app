@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <main>silence LOLOLOLOLOL</main>
+    <main>Main Page</main>
   );
 }
