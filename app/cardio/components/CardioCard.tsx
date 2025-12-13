@@ -1,4 +1,4 @@
-export default function CardioCard({ data: [] }) {
+export default function CardioCard({ data = [] }) {
     console.log("cardio card data: ", data );
     return (
         <section>

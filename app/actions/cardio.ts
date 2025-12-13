@@ -26,6 +26,7 @@ const getCardioWorkouts = async (id?: string) => {
         return JSON.parse(JSON.stringify(workout));
     }
     const workouts = await Cardio.find().exec();
+    console.log("Fetched workouts:", workouts);
     return JSON.parse(JSON.stringify(workouts));
 };
 
