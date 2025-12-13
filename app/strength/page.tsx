@@ -1,4 +1,6 @@
-export default function Page() {
+"use server";
+import StrengthProvider from "./StrengthProvider";
+export default async function StrengthPage() {
     return (
         <main>
             <h1>Strength Workouts</h1>
