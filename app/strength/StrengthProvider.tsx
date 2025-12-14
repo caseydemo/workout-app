@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useReducer, useRef, useCallback } from "react";
+import React, { createContext, useReducer, useRef, useCallback, useContext } from "react";
 import { IStrength } from "../models/Strength";
 
 // Workout type is based on imported IStrength model
@@ -78,6 +78,16 @@ export default function StrengthProvider({
     }
   }, []);
 
-	// Placeholder provider, no state management yet
-	return <>{children}</>;
+  return (
+    <StrengthContext.Provider value={{ state, dispatch, addWorkout }}>
+      {children}
+    </StrengthContext.Provider>
+  )
+
+}
+
+export function useStrengthContext() {
+  const ctx = useContext(StrengthContext);
+  if (!ctx) throw new Error("useStrengthContext must be used inside StrengthProvider");
+  return ctx;
 }
