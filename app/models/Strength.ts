@@ -2,7 +2,7 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
 // TypeScript interface for type safety
-interface IStrength {
+export interface IStrength {
   userId: string;
   exerciseName: string;
   sets: number;

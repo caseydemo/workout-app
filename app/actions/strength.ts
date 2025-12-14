@@ -25,8 +25,7 @@ const getStrengthWorkouts = async (id?: string) => {
         const workout = await Strength.findById(id).exec();
         return JSON.parse(JSON.stringify(workout));
     }
-    const workouts = await Strength.find().exec();
-    console.log("Fetched strength workouts:", workouts);
+    const workouts = await Strength.find().exec();    
     return JSON.parse(JSON.stringify(workouts));
 };
 

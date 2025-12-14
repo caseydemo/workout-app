@@ -1,6 +1,7 @@
 "use client";
 import React, { createContext, useReducer, useRef, useCallback, useContext } from "react";
 import { IStrength } from "../models/Strength";
+import { createStrengthWorkout as createStrengthWorkoutAction } from "../actions/strength";
 
 // Workout type is based on imported IStrength model
 type Workout = IStrength & { _id?: string };
