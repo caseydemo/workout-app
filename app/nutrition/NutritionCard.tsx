@@ -61,6 +61,7 @@ function NutritionCard({ entry }: NutritionCardProps) {
 				backgroundColor: isDeleting ? "#f5f5f5" : "white",
 				opacity: isDeleting ? 0.6 : 1,
 				transition: "all 0.3s ease",
+                color: "black"
 			}}
 		>
 			<div style={{ display: "flex", justifyContent: "space-between", alignItems: "start" }}>

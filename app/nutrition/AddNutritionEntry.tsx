@@ -66,7 +66,8 @@ export default function AddNutritionEntry() {
 			padding: "20px", 
 			border: "1px solid #ddd", 
 			borderRadius: "8px",
-			backgroundColor: "#f9f9f9"
+			backgroundColor: "#f9f9f9",
+            color: "black"
 		}}>
 			<h2>Add Nutrition Entry</h2>
 			{state.error && (
