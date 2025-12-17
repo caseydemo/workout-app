@@ -2,6 +2,7 @@ import NutritionProvider from "./NutritionProvider";
 import AddNutritionEntry from "./AddNutritionEntry";
 import NutritionList from "./NutritionList";
 import { getNutritionEntries } from "../actions/nutrition";
+import styles from "./page.module.css";
 
 /**
  * PRESENTATION NOTE: Server Component
@@ -17,11 +18,13 @@ export default async function NutritionPage() {
 	const entries = await getNutritionEntries();
 
 	return (
-		<main style={{ maxWidth: "1200px", margin: "0 auto", padding: "20px" }}>
-			<h1>Nutrition Tracker</h1>
-			<p style={{ marginBottom: "30px", color: "#666" }}>
-				Track your daily nutrition intake. Monitor calories, macros, and maintain a healthy diet.
-			</p>
+		<main className={styles.container}>
+			<div className={styles.header}>
+				<h1 className={styles.title}>Nutrition Tracker</h1>
+				<p className={styles.description}>
+					Track your daily nutrition intake. Monitor calories, macros, and maintain a healthy diet.
+				</p>
+			</div>
 
 			{/* 
 				PRESENTATION NOTE: Provider Wrapping Pattern
