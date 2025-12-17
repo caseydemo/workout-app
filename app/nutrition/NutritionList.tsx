@@ -3,6 +3,7 @@
 import React, { useMemo } from "react";
 import { useNutrition } from "./NutritionProvider";
 import NutritionCard from "./NutritionCard";
+import styles from "./NutritionList.module.css";
 
 /**
  * PRESENTATION NOTE: useMemo for Derived State
@@ -32,13 +33,7 @@ export default function NutritionList() {
 
 	if (state.entries.length === 0) {
 		return (
-			<div style={{ 
-				padding: "40px", 
-				textAlign: "center", 
-				color: "#666",
-				border: "2px dashed #ddd",
-				borderRadius: "8px"
-			}}>
+			<div className={styles.emptyState}>
 				<p>No nutrition entries yet. Add your first meal above!</p>
 			</div>
 		);
@@ -47,12 +42,7 @@ export default function NutritionList() {
 	return (
 		<div>
 			{/* Statistics Panel */}
-			<div style={{ 
-				display: "grid", 
-				gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", 
-				gap: "15px",
-				marginBottom: "30px"
-			}}>
+			<div className={styles.statsGrid}>
 				<StatCard label="Total Entries" value={stats.count} />
 				<StatCard label="Total Calories" value={`${stats.totalCalories} kcal`} />
 				<StatCard label="Total Protein" value={`${stats.totalProtein}g`} />
@@ -61,8 +51,8 @@ export default function NutritionList() {
 			</div>
 
 			{/* Entries List */}
-			<h2>Your Nutrition Entries ({state.entries.length})</h2>
-			<div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+			<h2 className={styles.listHeader}>Your Nutrition Entries ({state.entries.length})</h2>
+			<div className={styles.entriesList}>
 				{state.entries.map((entry) => (
 					<NutritionCard key={entry._id} entry={entry} />
 				))}
@@ -78,17 +68,11 @@ export default function NutritionList() {
  * Critical for lists with many items
  */
 const StatCard = React.memo(({ label, value }: { label: string; value: string | number }) => (
-	<div style={{
-		padding: "20px",
-		backgroundColor: "#f0f7ff",
-		borderRadius: "8px",
-		border: "1px solid #b3d9ff",
-		textAlign: "center"
-	}}>
-		<div style={{ fontSize: "24px", fontWeight: "bold", color: "#0066cc" }}>
+	<div className={styles.statCard}>
+		<div className={styles.statValue}>
 			{value}
 		</div>
-		<div style={{ fontSize: "14px", color: "#666", marginTop: "5px" }}>
+		<div className={styles.statLabel}>
 			{label}
 		</div>
 	</div>
