@@ -1,0 +1,112 @@
+.container {
+	margin-top: 30px;
+}
+
+.header {
+	margin-bottom: 20px;
+	color: #2d3748;
+	font-size: 1.5rem;
+}
+
+.emptyState {
+	padding: 60px 40px;
+	text-align: center;
+	color: #718096;
+	border: 2px dashed #cbd5e0;
+	border-radius: 12px;
+	background-color: #f7fafc;
+}
+
+.workoutList {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.workoutCard {
+	padding: 20px;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	background-color: white;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	color: #2d3748;
+	transition: all 0.3s;
+}
+
+.workoutCard:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	border-color: #cbd5e0;
+}
+
+.workoutHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: start;
+	margin-bottom: 15px;
+}
+
+.exerciseName {
+	font-size: 1.25rem;
+	font-weight: bold;
+	color: #2d3748;
+	text-transform: capitalize;
+}
+
+.workoutDetails {
+	background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+	color: white;
+	padding: 8px 16px;
+	border-radius: 20px;
+	font-weight: 600;
+	font-size: 0.9rem;
+}
+
+.statsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	gap: 10px;
+	margin-bottom: 12px;
+}
+
+.statItem {
+	padding: 12px;
+	background: linear-gradient(135deg, #e0f7ff 0%, #e8f9ff 100%);
+	border-radius: 8px;
+	text-align: center;
+}
+
+.statLabel {
+	font-size: 0.75rem;
+	color: #718096;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-bottom: 4px;
+}
+
+.statValue {
+	font-size: 1.15rem;
+	font-weight: bold;
+	color: #00a8e8;
+}
+
+.notes {
+	margin-top: 12px;
+	padding: 12px;
+	background-color: #f7fafc;
+	border-radius: 6px;
+	border-left: 3px solid #4facfe;
+	font-style: italic;
+	color: #4a5568;
+	line-height: 1.5;
+}
+
+.notes strong {
+	font-style: normal;
+	color: #2d3748;
+}
+
+.date {
+	font-size: 0.875rem;
+	color: #718096;
+	margin-top: 8px;
+}

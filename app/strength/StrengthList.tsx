@@ -1,5 +1,6 @@
 "use client";
 import { useStrengthContext } from "./StrengthProvider";
+import styles from "./StrengthList.module.css";
 
 export default function StrengthList() {
 
@@ -7,20 +8,53 @@ export default function StrengthList() {
 
     console.log("strength state: ", state);
 
-    if (!state.workouts.length) return <p>No strength workouts found.</p>;
+    if (!state.workouts.length) {
+        return (
+            <div className={styles.emptyState}>
+                <p>No strength workouts found. Add your first workout above!</p>
+            </div>
+        );
+    }
 
     console.log("strength workouts: ", state.workouts);
 
     return (
-        <section>
-            <h2>All Strength Workouts ({state.workouts.length})</h2>
-            {state.workouts.map((workout) => (
-                <div key={workout._id} style={{ padding: "10px", margin: "10px 0", border: "1px solid #ccc", borderRadius: "4px" }}>
-                    <strong>{workout.exerciseName}</strong> - {workout.sets} sets x {workout.reps} reps @ {workout.weight} lbs
-                    {workout.notes && <div>Notes: {workout.notes}</div>}
-                    <div>Date: {new Date(workout.date).toLocaleDateString()}</div>
-                </div>            
-            ))}
+        <section className={styles.container}>
+            <h2 className={styles.header}>All Strength Workouts ({state.workouts.length})</h2>
+            <div className={styles.workoutList}>
+                {state.workouts.map((workout) => (
+                    <div key={workout._id} className={styles.workoutCard}>
+                        <div className={styles.workoutHeader}>
+                            <span className={styles.exerciseName}>{workout.exerciseName}</span>
+                            <span className={styles.workoutDetails}>
+                                {workout.sets} × {workout.reps} @ {workout.weight} lbs
+                            </span>
+                        </div>
+                        <div className={styles.statsGrid}>
+                            <div className={styles.statItem}>
+                                <div className={styles.statLabel}>Sets</div>
+                                <div className={styles.statValue}>{workout.sets}</div>
+                            </div>
+                            <div className={styles.statItem}>
+                                <div className={styles.statLabel}>Reps</div>
+                                <div className={styles.statValue}>{workout.reps}</div>
+                            </div>
+                            <div className={styles.statItem}>
+                                <div className={styles.statLabel}>Weight</div>
+                                <div className={styles.statValue}>{workout.weight} lbs</div>
+                            </div>
+                        </div>
+                        {workout.notes && (
+                            <div className={styles.notes}>
+                                <strong>Notes:</strong> {workout.notes}
+                            </div>
+                        )}
+                        <div className={styles.date}>
+                            {new Date(workout.date).toLocaleDateString()}
+                        </div>
+                    </div>            
+                ))}
+            </div>
         </section>
     )
 }
